@@ -1,4 +1,4 @@
-import {put, call, takeEvery, takeLatest} from 'redux-saga';
+import {put, call, takeLatest} from 'redux-saga/effects';
 import * as usersActions from './usersActions';
 import http from '../../utils/http';
 
@@ -6,19 +6,19 @@ import http from '../../utils/http';
 //API endpoints for retrieving data
 let usersUrl = "https://jsonplaceholder.typicode.com/users";
 
-
 function* fetchUser(action){
     try{
-
-       let response =  yield call(http.get(usersUrl));
-       yield put({type: usersActions.FETCH_USERS_SUCCESS, response});
+       yield put({type: usersActions.FETCH_USERS_PENDING});
+       
+       let response =  yield call(http.get,usersUrl);
+       yield put(usersActions.fetchUsersSuccessAction(response));
 
     }catch(error){
-        yield put({type: usersActions.FETCH_USERS_ERROR, error});
+        
+        yield put(usersActions.fetchUsersErrorAction(error));
     }
 };
 
-
-export function fetchUserSaga(){
-    yield takeLatest(usersActions.FETCH_USERS_PENDING,fetchPost);
-};
+export const userSagas = [
+    takeLatest(usersActions.FETCH_USERS,fetchUser)
+];

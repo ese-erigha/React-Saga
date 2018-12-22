@@ -22,8 +22,7 @@ class Users extends Component {
     }
 
     fetchPostsByUser = (userId)=>{
-        console.log(userId);
-        console.log(this.props);
+        
         this.props.history.push(`/posts/${userId}`)
         //this.props.history.push(`${this.props.match.path}/${userId}`);
     };
@@ -113,7 +112,7 @@ class Users extends Component {
 }
 
 const mapStateToProps = state => {
-    //console.log(state.usersState);
+    console.log(state.usersState);
     return { 
         users: state.usersState.users,
         loading: state.usersState.loading,

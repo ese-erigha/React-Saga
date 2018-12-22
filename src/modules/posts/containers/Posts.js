@@ -79,7 +79,7 @@ class Posts extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log(state.postsState);
+    
     return { 
         posts: state.postsState.posts,
         loading: state.postsState.loading,

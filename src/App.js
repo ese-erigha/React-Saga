@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import {BrowserRouter as Router,Route,Redirect,Switch} from 'react-router-dom';
 import Loadable from 'react-loadable';
 import {Provider} from 'react-redux';
