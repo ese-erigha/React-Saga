@@ -1,6 +1,6 @@
 import {put, call, takeLatest} from 'redux-saga/effects';
 import * as usersActions from './usersActions';
-import http from '../../utils/http';
+import {getUsers} from '../../shared/services/httpService';
 
 
 //API endpoints for retrieving data
@@ -10,7 +10,7 @@ function* fetchUser(action){
     try{
        yield put({type: usersActions.FETCH_USERS_PENDING});
        
-       let response =  yield call(http.get,usersUrl);
+       let response =  yield call(getUsers,usersUrl);
        yield put(usersActions.fetchUsersSuccessAction(response));
 
     }catch(error){

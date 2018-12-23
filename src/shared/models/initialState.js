@@ -3,6 +3,6 @@ let initialState =  {
     users:[],
     posts:[],
     error: {}
-}
+};
 
 export default initialState;
