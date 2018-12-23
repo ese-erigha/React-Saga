@@ -14,11 +14,13 @@ export const getUsers = async (url)=>{
 };
 
 
-export const getPosts = async (url)=>{
+export const getPosts = async (url,params)=>{
 
     try{
 
-        const response = await axios.get(url);
+        const response = await axios.get(url,{
+            params: params
+        });
         return response.data;
 
     }catch(err){

@@ -9,7 +9,7 @@ function* fetchPost(action){
     try{
     
        yield put({type: postsActions.FETCH_POSTS_PENDING});
-       let response =  yield call(getPosts,`${postsBaseUrl}${action.payload}`);
+       let response =  yield call(getPosts,`${postsBaseUrl}`, { userId: action.payload});
        
        yield put(postsActions.fetchPostsSuccessAction(response));
 
