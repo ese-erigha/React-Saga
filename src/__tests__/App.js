@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from '../App';
 
+import {shallow} from 'enzyme';
+
 describe("The App Component",()=>{
 
   it('renders without crashing', () => {

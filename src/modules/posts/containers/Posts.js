@@ -11,8 +11,9 @@ import PostItem from '../components/PostItem';
 import ContentHeader from '../../../shared/components/ContentHeader';
 import Spinner from '../../../shared/components/Spinner';
 
-
-class Posts extends Component {
+//Export is needed so that we can test without mocking the redux store being passed to this component
+//In addition, we would also need to mock the fetchPosts function, passed as props in this component, in our unit tests
+export class Posts extends Component {
 
     constructor(props) {
         super(props);
@@ -48,6 +49,7 @@ class Posts extends Component {
 
         return (
             <Fragment>
+                
                 <ContentHeader title='Posts'/>
 
                 <div className="wrapper">
